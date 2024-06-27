@@ -29,7 +29,7 @@ export class ImageGenerateService {
           {
             role: 'user',
             content: [
-              { type: 'text', text: "What’s in this image with full details?" },
+              { type: 'text', text: "What's in this image? whole details in a single paragraph" },
               {
                 type: 'image_url',
                 image_url: {
@@ -41,7 +41,7 @@ export class ImageGenerateService {
         ],
       });
 
-      console.log(response.choices[0]);
+      console.log(response.choices[0].message.content);
 
       const imageResponse = await this.openai.images.generate({
         model: 'dall-e-3',
